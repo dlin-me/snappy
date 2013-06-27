@@ -1,0 +1,55 @@
+{
+    "name": "dlin/snappy-bundle",
+    "type": "symfony-bundle",
+    "description": "Dlin wrapper bundle for Snappy ( wkhtmltopdf )",
+    "homepage": "http://dlin.me",
+
+    "authors": [
+        {
+            "name": "David Lin",
+            "email": "davidforest@gmail.com"
+        }
+    ],
+
+    "require": {
+        "php": ">=5.3.8",
+        "knplabs/knp-snappy": "*",
+        "google/wkhtmltopdf-amd64": "0.11.0-RC1",
+        "google/wkhtmltopdf-i386": "0.11.0-RC1"
+
+    },
+    "require-dev": {
+        "symfony/framework-bundle": ">=2.0,<2.3-dev"
+    },
+
+    "autoload": {
+        "psr-0": { "Dlin\\Snappy": "" }
+    },
+    "minimum-stability": "dev",
+    "target-dir": "Dlin/Snappy",
+
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "google/wkhtmltopdf-amd64",
+                "version": "0.11.0-RC1",
+                "dist": {
+                    "url": "http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2",
+                    "type": "tar"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "google/wkhtmltopdf-i386",
+                "version": "0.11.0-RC1",
+                "dist": {
+                    "url": "http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.11.0_rc1-static-i386.tar.bz2",
+                    "type": "tar"
+                }
+            }
+        }
+    ]
+}
