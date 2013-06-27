@@ -6,11 +6,11 @@
 
     <parameters>
       <parameter key="dlin.service.pdf">Dlin\Snappy\Service\PdfService</parameter>
+      <parameter key="dlin.pdf_service.wkhtmltopd">/Applications/wkhtmltopdf.app/Contents/MacOS/wkhtmltopdf</parameter>
     </parameters>
 
     <services>
         <service id="dlin.pdf_service" class="%dlin.service.pdf%">
-          <argument type="service" id="service_container"/>
           <argument key="wkhtmltopdf">%dlin.pdf_service.wkhtmltopdf%</argument>
         </service>
     </services>

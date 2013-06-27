@@ -2,6 +2,8 @@
     "name": "dlin/snappy-bundle",
     "type": "symfony-bundle",
     "description": "Dlin wrapper bundle for Snappy ( wkhtmltopdf )",
+    "keywords": ["pdf", "symfony", "wkhtmltopdf"],
+    "license": "MIT",
     "homepage": "http://dlin.me",
 
     "authors": [
@@ -19,7 +21,8 @@
 
     },
     "require-dev": {
-        "symfony/framework-bundle": ">=2.0,<2.3-dev"
+        "symfony/framework-bundle": ">=2.0,<2.3-dev",
+        "symfony/finder": "2.3.*"
     },
 
     "autoload": {

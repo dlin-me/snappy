@@ -14,7 +14,7 @@ namespace Dlin\Snappy\Service;
 
 
 use Knp\Snappy\Pdf;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class PdfService
@@ -27,7 +27,7 @@ class PdfService
     /**
      * @var \Symfony\Component\DependencyInjection\ContainerInterface
      */
-    protected  $container;
+    protected $container;
 
 
     /**
@@ -35,14 +35,18 @@ class PdfService
      *
      * @inheritdoc
      */
-    function __construct( ContainerInterface $container = null, $wkhtmltopdf=null)
+    function __construct($wkhtmltopdf = null)
     {
-        $this->container = $container;
+        if ($wkhtmltopdf === null) {
+            $class = new Response();
+            $object = new \ReflectionObject($class);
+            $path = $object->getFileName();
+            $vendorDir = substr($path, 0,
+                strpos($path, DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'symfony' . DIRECTORY_SEPARATOR)
+            ) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR;
 
-        $vendorDir = $this->container->get('kernel')->getRootdir() . DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'vendor';
-        if($wkhtmltopdf === null){
-            $os = php_uname('m') == 'x86_64' ? 'amd64':'i386';
-            $wkhtmltopdf = $vendorDir.DIRECTORY_SEPARATOR."google".DIRECTORY_SEPARATOR."wkhtmltopdf-$os".DIRECTORY_SEPARATOR."wkhtmltopdf-$os";
+            $os = php_uname('m') == 'x86_64' ? 'amd64' : 'i386';
+            $wkhtmltopdf = $vendorDir . DIRECTORY_SEPARATOR . "google" . DIRECTORY_SEPARATOR . "wkhtmltopdf-$os" . DIRECTORY_SEPARATOR . "wkhtmltopdf-$os";
         }
         $this->pdf = new Pdf($wkhtmltopdf);
 
