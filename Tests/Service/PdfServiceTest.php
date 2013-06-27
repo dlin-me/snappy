@@ -39,7 +39,7 @@ class PdfServiceTest extends \PHPUnit_Framework_TestCase {
     {
         parent::tearDown();
         $this->pdf = null;
-        //unlink($this->testFile);
+        unlink($this->testFile);
 
     }
 

@@ -26,10 +26,10 @@
     },
 
     "autoload": {
-        "psr-0": { "Dlin\\Snappy": "" }
+        "psr-0": { "Dlin\\Bundle\\SnappyBundle": "" }
     },
     "minimum-stability": "dev",
-    "target-dir": "Dlin/Snappy",
+    "target-dir": "Dlin/Bundle/SnappyBundle",
 
     "repositories": [
         {
