@@ -18,7 +18,8 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('dlin');
+
+        $rootNode = $treeBuilder->root('dlin_snappy');
 
         // This is for wkhtmltopdf configuration
         $rootNode
