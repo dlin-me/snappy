@@ -72,7 +72,7 @@ class PdfService
      * @param $url
      * @param $fileName
      */
-    public function createPdfFromURL($url, $fileName)
+    public function createPdfFromUrl($url, $fileName)
     {
 
         $html = file_get_contents($url);
