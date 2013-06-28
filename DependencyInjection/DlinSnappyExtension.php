@@ -34,6 +34,12 @@ class DlinSnappyExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.xml');
+
+
+        $container->setParameter(
+            'dlin.pdf_service.wkhtmltopdf',
+            isset($configs['dlin']['pdf_service']['wkhtmltopdf'])?$configs['dlin']['pdf_service']['wkhtmltopdf']:null
+        );
     }
 }
 

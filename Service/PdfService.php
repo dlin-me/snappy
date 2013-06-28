@@ -24,10 +24,6 @@ class PdfService
      */
     protected $pdf;
 
-    /**
-     * @var \Symfony\Component\DependencyInjection\ContainerInterface
-     */
-    protected $container;
 
 
     /**
