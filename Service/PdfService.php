@@ -25,6 +25,7 @@ class PdfService
     protected $pdf;
 
 
+    protected $wkhtmltopdf;
 
     /**
      * Constructor
@@ -42,11 +43,17 @@ class PdfService
             ) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR;
 
             $os = php_uname('m') == 'x86_64' ? 'amd64' : 'i386';
-            $wkhtmltopdf = $vendorDir . DIRECTORY_SEPARATOR . "google" . DIRECTORY_SEPARATOR . "wkhtmltopdf-$os" . DIRECTORY_SEPARATOR . "wkhtmltopdf-$os";
+            $this->wkhtmltopdf = $vendorDir . "google" . DIRECTORY_SEPARATOR . "wkhtmltopdf-$os" . DIRECTORY_SEPARATOR . "wkhtmltopdf-$os";
+
+        }else{
+
+            $this->wkhtmltopdf = $wkhtmltopdf;
         }
-        $this->pdf = new Pdf($wkhtmltopdf);
+
+        $this->pdf = new Pdf($this->wkhtmltopdf );
 
     }
+
 
 
     /**
