@@ -10,7 +10,7 @@
  */
 
 
-namespace Dlin\Snappy\Service;
+namespace Dlin\Bundle\SnappyBundle\Service;
 
 
 use Knp\Snappy\Pdf;

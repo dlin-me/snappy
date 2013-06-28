@@ -10,12 +10,12 @@
  */
 namespace Dlin\Snappy\Tests\Service;
 
-use Dlin\Snappy\Service\PdfService;
+use Dlin\Bundle\SnappyBundle\Service\PdfService;
 
 class PdfServiceTest extends \PHPUnit_Framework_TestCase {
 
     /**
-     * @var \Dlin\Snappy\Service\PdfService
+     * @var \Dlin\Bundle\SnappyBundle\Service\PdfService
      */
     protected $pdf;
 
