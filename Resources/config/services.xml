@@ -5,13 +5,13 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-      <parameter key="dlin.service.pdf">Dlin\Snappy\Service\PdfService</parameter>
-      <parameter key="dlin.pdf_service.wkhtmltopd">/Applications/wkhtmltopdf.app/Contents/MacOS/wkhtmltopdf</parameter>
+      <parameter key="dlin.pdf_service.class">Dlin\Snappy\Service\PdfService</parameter>
+      <parameter key="dlin.pdf_service.wkhtmltopdf">/Applications/wkhtmltopdf.app/Contents/MacOS/wkhtmltopdf</parameter>
     </parameters>
 
     <services>
-        <service id="dlin.pdf_service" class="%dlin.service.pdf%">
-          <argument key="wkhtmltopdf">%dlin.pdf_service.wkhtmltopdf%</argument>
+        <service id="dlin.pdf_service" class="%dlin.pdf_service.class%">
+          <argument on-invalid="ignore">%dlin.pdf_service.wkhtmltopdf%</argument>
         </service>
     </services>
 </container>

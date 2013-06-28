@@ -20,7 +20,7 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('dlin');
 
-        // This is for sendgridmailer configuration
+        // This is for wkhtmltopdf configuration
         $rootNode
                 ->children()
                 ->arrayNode('pdf_service')
