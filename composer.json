@@ -1,7 +1,7 @@
 {
     "name": "dlin/snappy-bundle",
     "type": "symfony-bundle",
-    "description": "Dlin wrapper bundle for Snappy ( wkhtmltopdf )",
+    "description": "Symfony Bundle for Snappy ( wkhtmltopdf )",
     "keywords": ["pdf", "symfony", "wkhtmltopdf"],
     "license": "MIT",
     "homepage": "http://dlin.me",

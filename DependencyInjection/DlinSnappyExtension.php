@@ -9,7 +9,7 @@
  *
  */
 
-namespace Dlin\Snappy\DependencyInjection;
+namespace Dlin\SnappyBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
