@@ -38,7 +38,7 @@ class DlinSnappyExtension extends Extension
 
         $container->setParameter(
             'dlin.pdf_service.wkhtmltopdf',
-            isset($configs['dlin_snappy']['pdf_service']['wkhtmltopdf'])?$configs['dlin_snappy']['pdf_service']['wkhtmltopdf']:null
+            isset($config['pdf_service']['wkhtmltopdf'])?$config['pdf_service']['wkhtmltopdf']:null
         );
     }
 }
