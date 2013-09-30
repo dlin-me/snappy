@@ -4,6 +4,7 @@
     "description": "Symfony Bundle for Snappy ( wkhtmltopdf )",
     "keywords": ["pdf", "symfony", "wkhtmltopdf"],
     "license": "MIT",
+    "version": "0.9",
     "homepage": "http://dlin.me",
 
     "authors": [

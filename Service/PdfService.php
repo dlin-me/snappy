@@ -83,15 +83,21 @@ class PdfService
      * Create PDF from HTML string and sent to the browser
      *
      * @param $html
+     * @param $fileName
+     * @param $inline boolean if true, show PDF in browser
      */
-    public function sendHtmlAsPdf($html, $fileName)
+    public function sendHtmlAsPdf($html, $fileName, $inline=false)
     {
         header('Content-Type: application/pdf');
         header('Pragma: public');
         header('Expires: 0');
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
         header('Content-Transfer-Encoding: binary');
-        header('Content-Disposition: attachment; filename="' . $fileName . '"');
+        if($inline){
+            header('Content-Disposition: inline; filename="' . $fileName . '"');
+        }else{
+            header('Content-Disposition: attachment; filename="' . $fileName . '"');
+        }
 
         echo $this->pdf->getOutputFromHtml($html);
 
@@ -104,14 +110,19 @@ class PdfService
      *
      * @param $html
      */
-    public function sendUrlAsPdf($url, $fileName)
+    public function sendUrlAsPdf($url, $fileName, $inline=false)
     {
         header('Content-Type: application/pdf');
         header('Pragma: public');
         header('Expires: 0');
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
         header('Content-Transfer-Encoding: binary');
-        header('Content-Disposition: attachment; filename="' . $fileName . '"');
+
+        if($inline){
+            header('Content-Disposition: inline; filename="' . $fileName . '"');
+        }else{
+            header('Content-Disposition: attachment; filename="' . $fileName . '"');
+        }
 
         echo $this->pdf->getOutput($url);
         exit;
