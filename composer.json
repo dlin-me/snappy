@@ -4,7 +4,7 @@
     "description": "Symfony Bundle for Snappy ( wkhtmltopdf )",
     "keywords": ["pdf", "symfony", "wkhtmltopdf"],
     "license": "MIT",
-    "version": "0.9.1",
+    "version": "0.9",
     "homepage": "http://dlin.me",
 
     "authors": [
@@ -17,8 +17,8 @@
     "require": {
         "php": ">=5.3.8",
         "knplabs/knp-snappy": "*",
-        "google/wkhtmltopdfAamd64": "0.11.0",
-        "google/wkhtmltopdfI386": "0.11.0"
+        "google/wkhtmltopdf-amd64": "0.11.0-RC1",
+        "google/wkhtmltopdf-i386": "0.11.0-RC1"
 
     },
     "require-dev": {
@@ -29,15 +29,15 @@
     "autoload": {
         "psr-0": { "Dlin\\Bundle\\SnappyBundle": "" }
     },
-
+    "minimum-stability": "dev",
     "target-dir": "Dlin/Bundle/SnappyBundle",
 
     "repositories": [
         {
             "type": "package",
             "package": {
-                "name": "google/wkhtmltopdfAamd64",
-                "version": "0.11.0",
+                "name": "google/wkhtmltopdf-amd64",
+                "version": "0.11.0-RC1",
                 "dist": {
                     "url": "http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2",
                     "type": "tar"
@@ -47,8 +47,8 @@
         {
             "type": "package",
             "package": {
-                "name": "google/wkhtmltopdfI386",
-                "version": "0.11.0",
+                "name": "google/wkhtmltopdf-i386",
+                "version": "0.11.0-RC1",
                 "dist": {
                     "url": "http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.11.0_rc1-static-i386.tar.bz2",
                     "type": "tar"
