@@ -23,6 +23,8 @@ Installation
 
 Installation using [Composer](http://getcomposer.org/)
 
+NOTE: Unfortunately, Composer does not support repositories in nested dependencies, we have to include dependencies and repositories in the root composer.json. 
+
 Add to your `composer.json`:
 
 
@@ -30,7 +32,9 @@ Add to your `composer.json`:
     {
         "require" :  {
             ....
-            "dlin/snappy-bundle": "dev-master"
+            "dlin/snappy-bundle": "dev-master",
+            "google/wkhtmltopdf-amd64": "0.11.0-RC1",
+            "google/wkhtmltopdf-i386": "0.11.0-RC1",
         },
 
         ....
