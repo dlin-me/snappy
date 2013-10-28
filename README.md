@@ -29,8 +29,36 @@ Add to your `composer.json`:
     json
     {
         "require" :  {
+            ....
             "dlin/snappy-bundle": "dev-master"
-        }
+        },
+
+        ....
+
+        "repositories": [
+            {
+                "type": "package",
+                "package": {
+                    "name": "google/wkhtmltopdf-amd64",
+                    "version": "0.11.0-RC1",
+                    "dist": {
+                        "url": "http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2",
+                        "type": "tar"
+                    }
+                }
+            },
+            {
+                "type": "package",
+                "package": {
+                    "name": "google/wkhtmltopdf-i386",
+                    "version": "0.11.0-RC1",
+                    "dist": {
+                        "url": "http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.11.0_rc1-static-i386.tar.bz2",
+                        "type": "tar"
+                    }
+                }
+            }
+        ]
     }
 
 
