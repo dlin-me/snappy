@@ -23,7 +23,7 @@ Installation
 
 Installation using [Composer](http://getcomposer.org/)
 
-NOTE: Unfortunately, Composer does not support repositories in nested dependencies, we have to include dependencies and repositories in the root composer.json. 
+NOTE: Unfortunately, Composer does not support repositories in nested dependencies, we have to include dependencies and repositories in the root composer.json.
 
 Add to your `composer.json`:
 
@@ -134,7 +134,7 @@ Notes
 --------------
 * MAMP user couldl have problem using wkhtmltopdf. Please solve the problem [here](http://oneqonea.blogspot.in/2012/04/why-does-wkhtmltopdf-work-via-terminal.html)
 * Mac OSX requires its own wkhtmltopdf binnary. You can download it [here](https://code.google.com/p/wkhtmltopdf/downloads/list).
-
+* On your *nix server, you might need to install a library (sudo apt-get install libxrender1)
 
 
 

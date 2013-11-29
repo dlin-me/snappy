@@ -6,7 +6,7 @@
  * User: davidlin
  * Date: 27/06/13
  * Time: 3:39 PM
- * 
+ *
  */
 namespace Dlin\Snappy\Tests\Service;
 
@@ -14,10 +14,7 @@ use Dlin\Bundle\SnappyBundle\Service\PdfService;
 
 class PdfServiceTest extends \PHPUnit_Framework_TestCase {
 
-    /**
-     * @var \Dlin\Bundle\SnappyBundle\Service\PdfService
-     */
-    protected $pdf;
+
 
     protected $testFile;
 
@@ -27,7 +24,7 @@ class PdfServiceTest extends \PHPUnit_Framework_TestCase {
      */
     public function setUp()
     {
-        $this->pdf = new PdfService('/Applications/wkhtmltopdf.app/Contents/MacOS/wkhtmltopdf');
+
 
         $this->testFile = '/tmp/test.pdf';
     }
@@ -38,19 +35,28 @@ class PdfServiceTest extends \PHPUnit_Framework_TestCase {
     protected function tearDown()
     {
         parent::tearDown();
-        $this->pdf = null;
-        unlink($this->testFile);
 
+        @unlink($this->testFile);
     }
 
     /**
      * Simple test
      */
     public function testPdfFromURL(){
+        $pdf = new PdfService('/Applications/wkhtmltopdf.app/Contents/MacOS/wkhtmltopdf');
 
-        $this->pdf->createPdfFromURL('http://google.com', $this->testFile);
+        $pdf ->createPdfFromURL('http://google.com', $this->testFile);
 
         $this->assertTrue(file_exists($this->testFile));
+    }
+
+
+    public function testGetVenPath(){
+
+
+        $this->assertEquals('/test/path/vendor', PdfService::getVendorPath('/test/path/vendor/yes/ok.html'));
+        $this->assertNull(  PdfService::getVendorPath('/test/path/vedor/yes/ok.html'));
+
     }
 
 }

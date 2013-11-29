@@ -34,23 +34,35 @@ class PdfService
      */
     function __construct($wkhtmltopdf = null)
     {
-        if ($wkhtmltopdf === null) {
-            $class = new Response();
-            $object = new \ReflectionObject($class);
-            $path = $object->getFileName();
-            $vendorDir = substr($path, 0,
-                strpos($path, DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'symfony' . DIRECTORY_SEPARATOR)
-            ) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR;
+        if (!$wkhtmltopdf) {
+
+            $vendorDir = self::getVendorPath(__FILE__);
 
             $os = php_uname('m') == 'x86_64' ? 'amd64' : 'i386';
-            $this->wkhtmltopdf = $vendorDir . "google" . DIRECTORY_SEPARATOR . "wkhtmltopdf-$os" . DIRECTORY_SEPARATOR . "wkhtmltopdf-$os";
+            $this->wkhtmltopdf = $vendorDir .  DIRECTORY_SEPARATOR ."google" . DIRECTORY_SEPARATOR . "wkhtmltopdf-$os" . DIRECTORY_SEPARATOR . "wkhtmltopdf-$os";
 
         }else{
 
             $this->wkhtmltopdf = $wkhtmltopdf;
         }
 
+        if(!file_exists($this->wkhtmltopdf)){
+            throw new \Exception('wkhtmltopdf binary NOT found.');
+        }
+
         $this->pdf = new Pdf($this->wkhtmltopdf );
+
+    }
+
+
+    public static function getVendorPath($path){
+        $vendorPos = strpos($path, '/vendor/');
+
+        if($vendorPos === false){
+            return null;
+        }else{
+            return  substr($path, 0, $vendorPos ).'/vendor';
+        }
 
     }
 
