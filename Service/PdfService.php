@@ -73,9 +73,9 @@ class PdfService
      * @param $html
      * @param $fileName
      */
-    public function createPdfFromHtml($html, $fileName)
+    public function createPdfFromHtml($html, $fileName, $options=array(), $override=true)
     {
-        $this->pdf->generateFromHtml($html, $fileName, array(), true); //override existing
+        $this->pdf->generateFromHtml($html, $fileName, $options, $override); //override existing
     }
 
 
@@ -84,11 +84,11 @@ class PdfService
      * @param $url
      * @param $fileName
      */
-    public function createPdfFromUrl($url, $fileName)
+    public function createPdfFromUrl($url, $fileName, $options=array(), $override=true)
     {
 
         $html = file_get_contents($url);
-        $this->pdf->generateFromHtml($html, $fileName);
+        $this->pdf->generateFromHtml($html, $fileName, $options, $override);
     }
 
     /**
@@ -98,7 +98,7 @@ class PdfService
      * @param $fileName
      * @param $inline boolean if true, show PDF in browser
      */
-    public function sendHtmlAsPdf($html, $fileName, $inline=false)
+    public function sendHtmlAsPdf($html, $fileName, $inline=false, $options=array())
     {
         header('Content-Type: application/pdf');
         header('Pragma: public');
@@ -111,7 +111,7 @@ class PdfService
             header('Content-Disposition: attachment; filename="' . $fileName . '"');
         }
 
-        echo $this->pdf->getOutputFromHtml($html);
+        echo $this->pdf->getOutputFromHtml($html, $options);
 
         exit;
     }
@@ -122,7 +122,7 @@ class PdfService
      *
      * @param $html
      */
-    public function sendUrlAsPdf($url, $fileName, $inline=false)
+    public function sendUrlAsPdf($url, $fileName, $inline=false, $options=array())
     {
         header('Content-Type: application/pdf');
         header('Pragma: public');
@@ -136,7 +136,7 @@ class PdfService
             header('Content-Disposition: attachment; filename="' . $fileName . '"');
         }
 
-        echo $this->pdf->getOutput($url);
+        echo $this->pdf->getOutput($url, $options);
         exit;
     }
 

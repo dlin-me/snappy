@@ -1,17 +1,57 @@
-# Bootstrap
-app/bootstrap*
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
 
-# Symfony directories
-vendor/*
-*/logs/*
-*/cache/*
-web/uploads/*
-web/bundles/*
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
 
-# Configuration files
-app/config/parameters.ini
-app/config/parameters.yml
+# Logs and databases #
+######################
+*.log
+#*.sql
+*.sqlite
 
-vendor
-composer.phar
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# PHPStorm IDE #
+######################
+.idea
+.project
+
+
+# Symfony2 Files #
+######################
+phpunit.xml
 composer.lock
+composer.phar
+node_modules
+
+/web/bundles/*
+/app/bootstrap*
+/app/cache/*
+/app/logs/*
+vendor/
